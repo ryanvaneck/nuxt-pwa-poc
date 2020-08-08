@@ -8,6 +8,6 @@ export function formatDateRange(start, end) {
   return {
     startDate: format(startDate),
     endDate: format(endDate),
-    daysBetween: differenceInCalendarDays(startDate, endDate)
+    daysBetween: differenceInCalendarDays(endDate, startDate)
   }
 }
