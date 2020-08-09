@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmationCode should match snapshot on first render: first 1`] = `
+"<div>
+  <div>header</div>
+  <div class=\\"reservation-page\\">
+    <div>
+      <div class=\\"reservation\\">
+        <h1>Your reservation in San Francisco, CA</h1>
+        <div class=\\"image\\"><img src=\\"https://cdn.pixabay.com/photo/2013/11/13/21/14/san-francisco-210230_960_720.jpg\\" alt=\\"San Francisco, CA\\" class=\\"city-image\\"></div>
+        <div class=\\"details\\">
+          <div class=\\"location\\">
+            <h3>Location</h3>
+            Kasa Sand Diego at Aperture
+            Apartment 203
+          </div>
+          <div class=\\"dates\\">
+            <h3>Dates</h3>
+            Jan 9 2020 - Feb 13 2020 (35 days)
+          </div>
+          <div class=\\"confirmation-code\\">
+            <h3>Confirmation Code</h3>
+            #AAAAAA
+          </div>
+        </div>
+      </div>
+      <div class=\\"rating\\">
+        <h3>Rate Your Experience!</h3>
+        <div></div>
+        😢 😔 😐 🙂 😊
+      </div>
+    </div>
+    <!---->
+  </div>
+  <div class=\\"footer\\">footer</div>
+</div>"
+`;
+
+exports[`ConfirmationCode should match snapshot on no internet error: noInternetError 1`] = `
+"<div>
+  <div>header</div>
+  <div class=\\"reservation-page\\">
+    <!---->
+    <div> No internet connection detected.</div>
+  </div>
+  <div class=\\"footer\\">footer</div>
+</div>"
+`;

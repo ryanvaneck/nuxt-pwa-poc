@@ -1,0 +1,10 @@
+{
+  "yourReservation": "Your reservation in",
+  "location": "Location",
+  "dates": "Dates",
+  "confirmationCode":"Confirmation Code",
+  "rateYourExperience": "Rate Your Experience!",
+  "days": "days",
+  "noInternetError": "No Internet Connection detected",
+  "noConfirmationCodeError": "No reservation exists with code"
+}

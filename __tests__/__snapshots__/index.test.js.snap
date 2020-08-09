@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index should display the reservations that match the search term: San Fran 1`] = `
+"<div class=\\"reservation\\">
+  <nuxtlink-stub to=\\"/AAAAAA\\">
+    <div class=\\"city\\">San Francisco, CA</div>
+    <div class=\\"dates\\">
+      Jan 9 2020 - Feb 13 2020,
+      <span> #AAAAAA</span></div>
+  </nuxtlink-stub>
+</div>"
+`;
+
+exports[`Index should match snapshot on first render: first 1`] = `
+"<div>
+  <div>header</div>
+  <div class=\\"home\\">
+    <div class=\\"hero\\"><img src=\\"~/assets/img/room.png\\" alt=\\"nice room\\" class=\\"hero-image\\">
+      <div class=\\"search-box\\">
+        <h1>Find Your reservation</h1>
+        <h3>You can search by providing the city or the confirmation code of your reservation.</h3> <input type=\\"text\\" id=\\"searchTermId\\" class=\\"search-input\\"> <label for=\\"searchTermId\\"></label>
+        <div class=\\"search-results\\"></div> <input type=\\"button\\" value=\\"Search\\" class=\\"search-button\\">
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"footer\\">footer</div>
+</div>"
+`;

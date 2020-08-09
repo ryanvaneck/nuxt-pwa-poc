@@ -1,0 +1,6 @@
+{
+  "searchHeader": "Find Your reservation",
+  "searchSubheader": "You can search by providing the city or the confirmation code of your reservation.",
+  "searchButton": "Search",
+  "noInternetError": "No internet connection detected."
+}
