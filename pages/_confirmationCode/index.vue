@@ -63,15 +63,12 @@ export default {
       reservationData = await this.$http.$get(`${config.api.host}/reservations/${confirmationCode}`);
       this.reservation = reservationData;
     } catch (e) {
-      console.log({ e });
       let error;
       if (e.response && e.response.status === 404) {
         error = `${this.content.noConfirmationCodeError} ${confirmationCode}`;
       } else {
-        console.log('error');
         error = this.content.noInternetError;
       }
-      console.log('this.error = ', error);
       this.error = error;
     }
   },
