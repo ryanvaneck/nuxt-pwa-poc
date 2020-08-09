@@ -4,8 +4,8 @@
       <div class="hero">
         <img class="hero-image" src="~/assets/img/room.png" alt="nice room"/>
         <div class="search-box">
-          <h1>Find Your reservation</h1>
-          <h3>You can search by providing the city or the confirmation code of your reservation.</h3>
+          <h1>{{ this.content.searchHeader }}</h1>
+          <h3>{{ this.content.searchSubheader }}</h3>
           <input
               class="search-input"
               type="text"
@@ -13,7 +13,10 @@
               id="searchTermId"
           />
           <label for="searchTermId"></label>
-          <div class="search-results" :class="filteredReservations.length ? 'visible' : ''">
+          <div
+              class="search-results"
+              :class="filteredReservations.length ? 'visible' : ''"
+          >
             <div
                 v-for="reservation in filteredReservations"
                 :key="reservation.confirmationCode"
@@ -28,7 +31,12 @@
               </NuxtLink>
             </div>
           </div>
-          <input type="button" @click="handleClickSearch" value="Search" class="search-button"/>
+          <input
+            type="button"
+            @click="handleClickSearch"
+            :value="this.content.searchButton"
+            class="search-button"
+          />
           <div>{{ this.searchMessage }}</div>
         </div>
       </div>
@@ -39,8 +47,10 @@
 <script>
 
 import config from '../config/config';
-import { formatDateRange } from '@/helpers/dates';
-import PageLayout from '@/components/PageLayout';
+import { formatDateRange } from '../helpers/dates';
+import PageLayout from '../components/PageLayout';
+import content from './content.json';
+import '../assets/css/base.css';
 
 export default {
   name: 'Home',
@@ -52,11 +62,11 @@ export default {
   computed: {
     filteredReservations: function () {
       return this.reservations
-          .filter((res) => {
-            const searchTerm = this.searchTerm.toLowerCase();
-            return this.searchTerm &&
-                (res.city.toLowerCase().includes(searchTerm) || res.confirmationCode.toLowerCase().includes(searchTerm));
-          });
+        .filter((res) => {
+          const searchTerm = this.searchTerm.toLowerCase();
+          return this.searchTerm &&
+            (res.city.toLowerCase().includes(searchTerm) || res.confirmationCode.toLowerCase().includes(searchTerm));
+        });
     }
   },
   watch: {
@@ -82,6 +92,7 @@ export default {
       reservations: [],
       searchTerm: '',
       searchMessage: '',
+      content,
     };
   },
   async asyncData({ $http }) {
@@ -89,23 +100,14 @@ export default {
       const reservations = await $http.$get(`${config.api.host}/reservations`);
       return { reservations };
     } catch (e) {
-      return { error: 'No internet connection detected' };
+      return { error: content.noInternetError };
     }
   }
 };
 
 </script>
 
-<style>
-@font-face {
-  font-family: "Lora";
-  src: url("https://fonts.gstatic.com/s/lora/v16/0QIvMX1D_JOuMwr7I_FMl_E.woff2") format("woff");
-}
-
-body {
-  font-family: Lora, serif;
-  margin: 0;
-}
+<style scoped>
 
 .search-results.visible {
   border: solid 1px grey;
